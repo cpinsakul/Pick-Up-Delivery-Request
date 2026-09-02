@@ -144,6 +144,12 @@ table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px}th{pad
     <div><label>Role</label><select id="loginRole"><option>Employee</option><option>Supervisor</option><option>Admin</option></select></div>
     <button class="primary" onclick="login()">Sign In</button>
   </div>
+  <div class="manual-tip" style="margin-top:12px">
+    <strong>Demo login:</strong>
+    Employee 1002456 • Supervisor 1003001 • Admin 1009001.
+    If a managed Employee ID exists, the saved role and section access are used automatically.
+  </div>
+
 </div></div>
 
 <div id="app" class="hidden">
@@ -640,6 +646,20 @@ table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px}th{pad
 <script>
 /* js/state.js */
 // Central application state and demo seed data.
+
+const SECTION_DIRECTORY = {
+  VOC:['Operations','Asset Management','Warehouse','QA','Support'],
+  DA:['Support','Data Analytics','Reporting','Development'],
+  NS:['North Section','Field Support','Operations'],
+  VSD:['Voter Services','Support','Operations']
+};
+
+const DEFAULT_USERS = [
+  {name:'Demo User',empId:'1002456',role:'Employee',division:'VOC',sections:['Operations'],active:true},
+  {name:'Supervisor Demo',empId:'1003001',role:'Supervisor',division:'VOC',sections:['Operations','Asset Management','Warehouse','QA'],active:true},
+  {name:'Admin Demo',empId:'1009001',role:'Admin',division:'VOC',sections:['Operations','Asset Management','Warehouse','QA','Support'],active:true}
+];
+
 const seed = [
   {
     id:'DP-20260828-1001',employee:'Maria Gomez',empId:'1002456',division:'VOC',section:'Operations',
@@ -671,7 +691,14 @@ const AppState = {
   detailId: null,
   formAssets: [],
   editingId: null,
-  users: JSON.parse(localStorage.getItem('voc_users_v1') || 'null') || DEFAULT_USERS.map(u=>({...u,sections:[...u.sections]}))
+  users: (() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem('voc_users_v1') || 'null');
+      return Array.isArray(saved) ? saved : DEFAULT_USERS.map(u=>({...u,sections:[...u.sections]}));
+    } catch(e) {
+      return DEFAULT_USERS.map(u=>({...u,sections:[...u.sections]}));
+    }
+  })()
 };
 
 </script>
@@ -1244,7 +1271,8 @@ function login(){
     AppState.currentUser = {name,empId,role,division:'',sections:[]};
   }
 
-  $('loginScreen').classList.add('hidden');
+  $('loginShell').classList.add('hidden');
+  $('loginScreen').classList.remove('hidden');
   $('app').classList.remove('hidden');
   $('who').textContent=AppState.currentUser.name+' • '+AppState.currentUser.empId;
   $('rolePill').textContent=AppState.currentUser.role;
@@ -1270,6 +1298,7 @@ function login(){
 function logout(){
   AppState.currentUser = null;
   $('app').classList.add('hidden');
+  $('loginScreen').classList.remove('hidden');
   $('loginShell').classList.remove('hidden');
 }
 
@@ -1305,6 +1334,14 @@ function startNewRequest(btn){
   showTab('employee', btn);
   setTimeout(() => $('division')?.focus(), 0);
 }
+
+
+document.addEventListener('keydown', e => {
+  if(e.key === 'Enter' && !$('loginShell').classList.contains('hidden') && !$('loginScreen').classList.contains('hidden')){
+    const tag = (document.activeElement?.tagName || '').toLowerCase();
+    if(tag !== 'textarea') login();
+  }
+});
 
 </script>
 <script>
