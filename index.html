@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>VOC Pick Up & Delivery Request</title>
+<title>VOC Pick Up & Delivery Request v1.0</title>
 <style>
 
 :root{
@@ -62,6 +62,71 @@ table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px}th{pad
 .search-wrap input{min-width:240px}
 .empty-report{padding:18px;text-align:center;color:var(--muted);font-size:13px}
 
+
+.help-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.help-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}
+.help-card h3{margin:0 0 8px;color:var(--voc-navy);font-size:17px}
+.help-card h4{margin:14px 0 6px;color:#344054;font-size:14px}
+.help-card p,.help-card li{font-size:13px;line-height:1.55;color:#475467}
+.help-card ul,.help-card ol{margin:8px 0 0 20px;padding:0}
+.workflow{display:flex;gap:10px;align-items:stretch;flex-wrap:wrap;margin-top:12px}
+.workflow-step{flex:1;min-width:150px;background:#f8fbff;border:1px solid #d7e4f0;border-radius:12px;padding:14px;position:relative}
+.workflow-step strong{display:block;color:var(--voc-navy);margin-bottom:4px}
+.workflow-arrow{display:flex;align-items:center;font-weight:800;color:var(--voc-blue);font-size:18px}
+.version-box{background:linear-gradient(135deg,#0f2740,#164f7a);color:#fff;border-radius:14px;padding:18px}
+.version-box small{opacity:.8;display:block}
+.version-box strong{font-size:28px;display:block;margin:3px 0 6px}
+.about-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.about-meta div{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px}
+.about-meta small{display:block;color:var(--muted)}
+.about-meta strong{display:block;margin-top:4px;color:var(--voc-navy)}
+.callout{background:#fff8e8;border:1px solid #f4cf7a;border-radius:12px;padding:13px;margin-top:12px;color:#7a4b00;font-size:13px;line-height:1.5}
+.faq-item{border-top:1px solid var(--line);padding:12px 0}
+.faq-item:first-child{border-top:0}
+.faq-item strong{color:#344054}
+@media(max-width:850px){.help-grid{grid-template-columns:1fr}.about-meta{grid-template-columns:1fr}.workflow{display:grid;grid-template-columns:1fr}.workflow-arrow{display:none}}
+
+
+.manual-shell{display:grid;grid-template-columns:240px 1fr;gap:18px}
+.manual-nav{background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:14px;align-self:start;position:sticky;top:88px}
+.manual-nav strong{display:block;color:var(--voc-navy);margin-bottom:10px}
+.manual-nav button{width:100%;text-align:left;background:transparent;color:#344054;border:0;padding:8px 9px;border-radius:8px;font-weight:650}
+.manual-nav button:hover{background:#eaf2f8;color:var(--voc-blue)}
+.manual-content{min-width:0}
+.manual-section{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px;scroll-margin-top:100px}
+.manual-section h3{margin:0 0 8px;color:var(--voc-navy)}
+.manual-section h4{margin:14px 0 6px;color:#344054}
+.manual-section p,.manual-section li{font-size:13px;line-height:1.6;color:#475467}
+.manual-section ol,.manual-section ul{margin:8px 0 0 20px;padding:0}
+.manual-step{display:grid;grid-template-columns:34px 1fr;gap:10px;margin:10px 0}
+.manual-step-num{width:28px;height:28px;border-radius:50%;background:var(--voc-blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800}
+.manual-tip{background:#eef6fb;border-left:4px solid var(--voc-blue);padding:11px 12px;border-radius:8px;margin-top:10px;font-size:13px;color:#344054}
+.manual-warning{background:#fff7e8;border-left:4px solid #c68a00;padding:11px 12px;border-radius:8px;margin-top:10px;font-size:13px;color:#6b4700}
+.manual-toolbar{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.manual-toolbar .actions{margin-top:0}
+.manual-search{min-width:260px}
+@media(max-width:850px){.manual-shell{grid-template-columns:1fr}.manual-nav{position:static}.manual-search{min-width:0;width:100%}}
+@media print{
+  .topbar,.tabs,.hero,.manual-nav,.manual-toolbar button{display:none!important}
+  .wrap{max-width:none;margin:0;padding:0}
+  .panel{display:none!important}
+  #help.panel{display:block!important}
+  .card{box-shadow:none;border:0;padding:0}
+  .manual-section{break-inside:avoid;border:0;border-bottom:1px solid #ddd;border-radius:0}
+}
+
+
+.user-admin-grid{display:grid;grid-template-columns:1.05fr 1.95fr;gap:16px}
+.user-form{background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:16px}
+.user-table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px}
+.section-checks{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:6px}
+.section-check{display:flex;gap:8px;align-items:center;padding:8px 9px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:12px}
+.section-check input{width:auto}
+.user-actions{display:flex;gap:6px;flex-wrap:wrap}
+.access-chip{display:inline-block;padding:4px 7px;border-radius:999px;background:#eaf2f8;color:var(--voc-navy);font-size:11px;font-weight:700;margin:2px 3px 2px 0}
+.inactive-user{opacity:.58}
+@media(max-width:950px){.user-admin-grid{grid-template-columns:1fr}}
+
 .queue-note{font-size:12px;color:#667085;margin-top:3px}.workflow{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin-top:13px}.workflow span{font-size:12px;padding:6px 9px;border-radius:999px;background:#eef3f8;color:#41566b;font-weight:700}.workflow b{color:#94a3b8}.edit-banner{margin-bottom:14px;padding:11px 13px;border-radius:10px;background:#eaf3fb;border:1px solid #c6dff3;color:#174f89;font-size:13px;font-weight:650}
 @media(max-width:950px){.report-grid{grid-template-columns:repeat(2,1fr)}.report-layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}.summaryBand{grid-template-columns:repeat(2,1fr)}.asset-entry{grid-template-columns:1fr 1fr}.asset-entry button{align-self:end}}
 @media(max-width:650px){.report-grid{grid-template-columns:1fr}.bar-row{grid-template-columns:110px 1fr 38px}.search-wrap{width:100%}.search-wrap input{min-width:0;flex:1}.topbar{padding:10px 14px}.brand-sub{display:none}.wrap{padding:0 12px}.grid,.type-row,.receipt-grid{grid-template-columns:1fr}.full{grid-column:auto}.stats{grid-template-columns:repeat(2,1fr)}.event{grid-template-columns:1fr}.summaryBand{grid-template-columns:1fr}.section-title{align-items:flex-start;flex-direction:column}.filters{width:100%}.filters input,.filters select{width:100%}.asset-entry{grid-template-columns:1fr}.modal{padding:10px}.modal-card{padding:16px}.login{padding:24px}}
@@ -82,7 +147,7 @@ table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px}th{pad
 </div></div>
 
 <div id="app" class="hidden">
-  <div class="topbar"><div class="brand"><div class="brand-mark">VOC</div><div>VOC Pick Up & Delivery Request<span class="brand-sub">Operations Request Management</span></div></div><div class="userbox"><span id="who" class="pill"></span><span id="rolePill" class="pill"></span><button class="secondary" onclick="logout()">Change Role</button></div></div>
+  <div class="topbar"><div class="brand"><div class="brand-mark">VOC</div><div>VOC Pick Up & Delivery Request<span class="brand-sub">Operations Request Management • Version 1.0</span></div></div><div class="userbox"><span id="who" class="pill"></span><span id="rolePill" class="pill"></span><button class="secondary" onclick="logout()">Change Role</button></div></div>
   <div class="wrap">
     <div class="hero"><div class="eyebrow">VOC Operations • IDP-style workflow</div><h1>VOC Pick Up & Delivery Request</h1><p class="muted">A controlled workflow for requesting, approving, processing, and completing asset movement with full activity history.</p><div class="workflow"><span>1. Employee Request</span><b>→</b><span>2. Supervisor Approval</span><b>→</b><span>3. Admin Processing</span><b>→</b><span>4. Complete</span></div><div id="roleNote" class="role-note"></div></div>
     <div id="tabs" class="tabs"></div>
@@ -149,8 +214,419 @@ table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px}th{pad
         </div>
       </div>
     </section>
+    <section id="help" class="panel">
+      <div class="card">
+        <div class="manual-toolbar">
+          <div>
+            <h2 style="margin:0">VOC Pick Up & Delivery Request — User Manual</h2>
+            <div class="muted">Version 1.0 • Built-in guide for Employees, Supervisors, and Admin users.</div>
+          </div>
+          <div class="actions">
+            <input id="manualSearch" class="manual-search" placeholder="Search this manual..." oninput="filterManual()">
+            <button class="secondary" type="button" onclick="clearManualSearch()">Clear</button>
+            <button class="primary" type="button" onclick="window.print()">Print Manual</button>
+          </div>
+        </div>
+
+        <div class="manual-shell">
+          <aside class="manual-nav">
+            <strong>Manual Contents</strong>
+            <button onclick="goManual('m-start')">1. Getting Started</button>
+            <button onclick="goManual('m-workflow')">2. System Workflow</button>
+            <button onclick="goManual('m-employee')">3. Employee Guide</button>
+            <button onclick="goManual('m-supervisor')">4. Supervisor Guide</button>
+            <button onclick="goManual('m-admin')">5. Admin Guide</button>
+            <button onclick="goManual('m-assets')">6. Devices / Assets</button>
+            <button onclick="goManual('m-dashboard')">7. Dashboard & Search</button>
+            <button onclick="goManual('m-reports')">8. Reports & CSV</button>
+            <button onclick="goManual('m-status')">9. Status Definitions</button>
+            <button onclick="goManual('m-history')">10. Request History</button>
+            <button onclick="goManual('m-trouble')">11. Troubleshooting</button>
+            <button onclick="goManual('m-security')">13. Security Notes</button>
+          </aside>
+
+          <div class="manual-content">
+
+            <div id="m-start" class="manual-section" data-manual>
+              <h3>1. Getting Started</h3>
+              <p>VOC Pick Up & Delivery Request is used to create, review, approve, process, track, and report asset movement requests.</p>
+              <h4>Available Roles</h4>
+              <ul>
+                <li><strong>Employee:</strong> Create, save, submit, edit Draft/Rejected requests, and track status.</li>
+                <li><strong>Supervisor:</strong> Review Pending Supervisor requests and approve or reject them.</li>
+                <li><strong>Admin:</strong> Process approved requests and mark work completed.</li>
+              </ul>
+              <div class="manual-tip"><strong>Tip:</strong> Use the tabs at the top of the application to move between Dashboard, role-specific work screens, Reports, Help, and About.</div>
+            </div>
+
+            <div id="m-workflow" class="manual-section" data-manual>
+              <h3>2. System Workflow</h3>
+              <div class="workflow">
+                <div class="workflow-step"><strong>Employee</strong><span>Create request → Add devices → Save Draft or Submit</span></div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step"><strong>Supervisor</strong><span>Review → Approve or Reject</span></div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step"><strong>Admin</strong><span>Start Processing → Complete</span></div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step"><strong>Reporting</strong><span>Dashboard → Search → Reports → CSV</span></div>
+              </div>
+              <p>Each status change is recorded in the request activity history so users can see what happened and when.</p>
+            </div>
+
+            <div id="m-employee" class="manual-section" data-manual>
+              <h3>3. Employee Guide</h3>
+
+              <div class="manual-step"><div class="manual-step-num">1</div><div><strong>Open New Request</strong><p>Select <strong>New Request</strong> from the navigation.</p></div></div>
+              <div class="manual-step"><div class="manual-step-num">2</div><div><strong>Select Request Type</strong><p>Choose <strong>Delivery</strong> when assets are being sent to a location or <strong>Pickup</strong> when assets need to be collected.</p></div></div>
+              <div class="manual-step"><div class="manual-step-num">3</div><div><strong>Complete Request Information</strong><p>Enter Division, Section, Priority, Location, Requested Date, Preferred Time, Site Contact, Phone/Extension, and Business Reason / Instructions.</p></div></div>
+              <div class="manual-step"><div class="manual-step-num">4</div><div><strong>Add Devices</strong><p>Select Asset Type, enter Asset Tag / ID, optional Serial Number, and Quantity. Select <strong>+ Add Device</strong>. Repeat for additional devices.</p></div></div>
+              <div class="manual-step"><div class="manual-step-num">5</div><div><strong>Save or Submit</strong><p>Select <strong>Save Draft</strong> if work is not complete. Select <strong>Review & Submit</strong> when ready.</p></div></div>
+              <div class="manual-step"><div class="manual-step-num">6</div><div><strong>Review</strong><p>Confirm requester information, device lines, quantity, location, date, contact, and instructions.</p></div></div>
+              <div class="manual-step"><div class="manual-step-num">7</div><div><strong>Submit</strong><p>Select <strong>Confirm & Submit</strong>. The request receives a unique Request ID and routes to Supervisor Approval.</p></div></div>
+
+              <div class="manual-warning"><strong>Important:</strong> Employees can edit requests only when they are in <strong>Draft</strong> or <strong>Rejected</strong> status.</div>
+            </div>
+
+            <div id="m-supervisor" class="manual-section" data-manual>
+              <h3>4. Supervisor Guide</h3>
+              <ol>
+                <li>Open <strong>Supervisor Approval</strong>.</li>
+                <li>Review each Pending Supervisor request.</li>
+                <li>Check employee information, request type, priority, requested date, location, devices, quantity, site contact, and instructions.</li>
+                <li>Select <strong>Approve</strong> when the request is valid and ready for Admin.</li>
+                <li>Select <strong>Reject</strong> when the employee needs to make a correction.</li>
+                <li>Use <strong>Reports</strong> to monitor overall workload and status.</li>
+              </ol>
+              <div class="manual-tip">Approved requests move to the Admin queue. Rejected requests return to the employee for editing and resubmission.</div>
+            </div>
+
+            <div id="m-admin" class="manual-section" data-manual>
+              <h3>5. Admin Guide</h3>
+              <ol>
+                <li>Open <strong>Admin Processing</strong>.</li>
+                <li>Review requests with Approved status.</li>
+                <li>Select <strong>Start Processing</strong> when operational work begins.</li>
+                <li>Coordinate asset preparation, delivery, pickup, or handoff as required.</li>
+                <li>Open the request again to verify details before completion.</li>
+                <li>Select <strong>Mark Completed</strong> after the work is finished.</li>
+                <li>Use Dashboard and Reports for monitoring and CSV export.</li>
+              </ol>
+            </div>
+
+            <div id="m-assets" class="manual-section" data-manual>
+              <h3>6. Devices / Assets</h3>
+              <p>One request can contain one or many device lines. This avoids creating separate requests when several devices are moving to the same location under the same business request.</p>
+              <h4>Device Fields</h4>
+              <ul>
+                <li><strong>Asset Type:</strong> Category of equipment.</li>
+                <li><strong>Asset Tag / ID:</strong> Unique identifier for the asset or device line.</li>
+                <li><strong>Serial Number:</strong> Optional hardware serial number.</li>
+                <li><strong>Quantity:</strong> Number of items represented by the line.</li>
+              </ul>
+              <p>Use <strong>Edit</strong> to return a device line to the entry area for changes. Use <strong>Remove</strong> to delete it from the request before submission.</p>
+              <div class="manual-warning">Duplicate Asset Tag / ID values are blocked within the same request.</div>
+            </div>
+
+            <div id="m-dashboard" class="manual-section" data-manual>
+              <h3>7. Dashboard & Search</h3>
+              <p>The Dashboard is the main tracking screen. It shows request counts and a searchable request table.</p>
+              <h4>Search</h4>
+              <p>The search box can match Request ID, Employee, Employee ID, Division, Section, Request Type, Priority, Status, Asset Type, Asset Tag, Serial Number, Location, Site Contact, Notes, and dates.</p>
+              <ul>
+                <li>Type one word for a broad search.</li>
+                <li>Type multiple words to narrow results.</li>
+                <li>Use the Status filter together with search.</li>
+                <li>Select <strong>Clear</strong> to reset search and status filtering.</li>
+                <li>The result count shows how many rows match the current search.</li>
+              </ul>
+              <h4>Open Request</h4>
+              <p>Select <strong>Open</strong> to view full request details, devices, current status, and activity history.</p>
+            </div>
+
+            <div id="m-reports" class="manual-section" data-manual>
+              <h3>8. Reports & CSV Export</h3>
+              <p>The Reports screen is available to Supervisor and Admin roles.</p>
+              <h4>Key Metrics</h4>
+              <ul>
+                <li>Total Requests</li>
+                <li>Total Device Quantity</li>
+                <li>Urgent Requests</li>
+                <li>Completion Rate</li>
+              </ul>
+              <h4>Operational Breakdowns</h4>
+              <ul>
+                <li>Status Distribution</li>
+                <li>Delivery vs Pick Up</li>
+                <li>Requests by Division</li>
+                <li>Top Asset Types</li>
+              </ul>
+              <h4>Export CSV</h4>
+              <p>Select <strong>Export CSV</strong> from the Dashboard to export the current Dashboard search/filter results. Select <strong>Export Report CSV</strong> from Reports to export the current report status selection.</p>
+              <div class="manual-tip">CSV files can be opened in Excel for additional filtering, pivot tables, analysis, or reporting.</div>
+            </div>
+
+            <div id="m-status" class="manual-section" data-manual>
+              <h3>9. Request Status Definitions</h3>
+              <ul>
+                <li><strong>Draft:</strong> Request is saved but has not been submitted.</li>
+                <li><strong>Pending Supervisor:</strong> Employee submitted the request and it is waiting for Supervisor review.</li>
+                <li><strong>Approved:</strong> Supervisor approved the request and it is ready for Admin.</li>
+                <li><strong>Rejected:</strong> Supervisor returned the request to the Employee for correction.</li>
+                <li><strong>Admin Processing:</strong> Admin has started operational processing.</li>
+                <li><strong>Completed:</strong> Pick Up / Delivery work is finished.</li>
+              </ul>
+            </div>
+
+            <div id="m-history" class="manual-section" data-manual>
+              <h3>10. Request History</h3>
+              <p>Each request includes an Activity History. It records major actions such as Draft creation, submission, approval, rejection, Admin processing, completion, and resubmission.</p>
+              <p>Open a request from the Dashboard to review the timeline.</p>
+            </div>
+
+            <div id="m-trouble" class="manual-section" data-manual>
+              <h3>11. Troubleshooting</h3>
+              <h4>I cannot submit the request.</h4>
+              <p>Confirm all required fields are completed, at least one device has been added, Employee ID is valid, and Requested Date is not in the past.</p>
+
+              <h4>I cannot find a request.</h4>
+              <p>Clear the Dashboard search and Status filter, then search again using the Request ID, Employee ID, Asset Tag, or Location.</p>
+
+              <h4>I cannot edit a request.</h4>
+              <p>Employees can edit only Draft or Rejected requests. Requests already submitted or being processed follow the controlled workflow.</p>
+
+              <h4>I do not see Reports.</h4>
+              <p>The Reports tab is available to Supervisor and Admin roles.</p>
+
+              <h4>CSV export shows fewer rows than expected.</h4>
+              <p>Dashboard CSV export follows the current search and status filter. Clear filters before exporting all visible requests.</p>
+
+              <h4>My demo data disappeared or changed.</h4>
+              <p>Version 1.0 currently stores testing data in the browser. Clearing browser storage can remove locally stored demo requests.</p>
+            </div>
+
+            
+            <div id="m-useradmin" class="manual-section" data-manual>
+              <h3>12. Admin User & Access Management</h3>
+              <p>Admins can maintain application users from the <strong>User Management</strong> tab.</p>
+              <ul>
+                <li>Add new users.</li>
+                <li>Edit employee name, Employee ID, role, division, and active status.</li>
+                <li>Grant access to one or many sections.</li>
+                <li>Activate or deactivate access.</li>
+                <li>Delete users when appropriate.</li>
+              </ul>
+              <h4>Multi-Section Supervisor Access</h4>
+              <p>A Supervisor can be granted multiple sections. The Supervisor Approval queue and dashboard will show requests for those granted sections.</p>
+              <div class="manual-tip">Example: a VOC Supervisor can be granted Operations, Warehouse, QA, and Asset Management at the same time.</div>
+            </div>
+
+<div id="m-security" class="manual-section" data-manual>
+              <h3>13. Security & Production Notes</h3>
+              <p>Version 1.0 is a functional browser-based demonstration. The current role selector and browser storage are intended for testing and design validation.</p>
+              <h4>Recommended Production Design</h4>
+              <p><strong>Microsoft Entra ID → VOC Web Application → Secure API → Azure SQL or Dataverse</strong></p>
+              <ul>
+                <li>Use organization sign-in instead of a role dropdown.</li>
+                <li>Determine Employee, Supervisor, and Admin permissions from authenticated identity or security groups.</li>
+                <li>Store requests, devices, and history in Azure SQL or Dataverse.</li>
+                <li>Enforce approval/status permissions on the server, not only in the browser.</li>
+                <li>Protect database credentials and application secrets.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="panel">
+      <div class="card">
+        <div class="section-title">
+          <div>
+            <h2 style="margin:0">About VOC Pick Up & Delivery Request</h2>
+            <div class="muted">System overview, purpose, features, and Version 1.0 information.</div>
+          </div>
+        </div>
+
+        <div class="version-box">
+          <small>Current Release</small>
+          <strong>Version 1.0</strong>
+          <div>VOC Pick Up & Delivery Request</div>
+        </div>
+
+        <div class="about-meta">
+          <div><small>Primary Purpose</small><strong>Asset Pick Up & Delivery Request Management</strong></div>
+          <div><small>Workflow</small><strong>Employee → Supervisor → Admin</strong></div>
+          <div><small>Request Model</small><strong>One Request → Many Devices</strong></div>
+        </div>
+
+        <div class="help-grid" style="margin-top:16px">
+          <div class="help-card">
+            <h3>What This System Does</h3>
+            <p>VOC Pick Up & Delivery Request is designed to manage operational requests for moving equipment and assets between locations. It provides one place for request submission, approval, processing, completion, history, reporting, and export.</p>
+          </div>
+
+          <div class="help-card">
+            <h3>Core Features</h3>
+            <ul>
+              <li>Role-based Employee, Supervisor, and Admin experience</li><li>Admin User & Access Management</li><li>Multi-section access grants for Supervisors</li>
+              <li>Delivery and Pick Up request types</li>
+              <li>One request with multiple devices</li>
+              <li>Draft saving and resubmission</li>
+              <li>Supervisor approval and rejection</li>
+              <li>Admin processing and completion</li>
+              <li>Dashboard status tracking</li>
+              <li>Search and status filtering</li>
+              <li>Operational Reports Dashboard</li>
+              <li>CSV export</li>
+              <li>Request receipt</li>
+              <li>Activity history / audit trail</li>
+            </ul>
+          </div>
+
+          <div class="help-card">
+            <h3>Data Captured</h3>
+            <ul>
+              <li>Request ID</li>
+              <li>Employee Name and Employee ID</li>
+              <li>Division and Section</li>
+              <li>Delivery or Pick Up</li>
+              <li>Priority</li>
+              <li>Location</li>
+              <li>Requested Date and Preferred Time</li>
+              <li>Site Contact and Phone</li>
+              <li>Business Reason / Instructions</li>
+              <li>Asset Type, Asset Tag, Serial Number, and Quantity</li>
+              <li>Status, Submitted Date, Updated Date, and Request History</li>
+            </ul>
+          </div>
+
+          <div class="help-card">
+            <h3>Version 1.0 Scope</h3>
+            <p>Version 1.0 establishes the initial complete user workflow and user interface for request management. It includes role-based workflow simulation, multi-device requests, approval processing, dashboards, reports, search, history, and CSV export.</p>
+            <div class="callout">
+              Production deployment should replace browser local storage and demo role selection with a secure backend database and organization authentication.
+            </div>
+          </div>
+
+          <div class="help-card">
+            <h3>Recommended Production Architecture</h3>
+            <p><strong>Microsoft 365 / Entra ID → VOC Web App → Secure API → Azure SQL or Dataverse</strong></p>
+            <p>This keeps authentication, role permissions, request records, asset records, approvals, and request history centralized and secure.</p>
+          </div>
+
+          <div class="help-card">
+            <h3>Version 1.0 Workflow Summary</h3>
+            <div class="workflow">
+              <div class="workflow-step"><strong>Employee</strong><span>Create → Add Devices → Save Draft → Review → Submit</span></div>
+              <div class="workflow-arrow">→</div>
+              <div class="workflow-step"><strong>Supervisor</strong><span>Review → Approve or Reject</span></div>
+              <div class="workflow-arrow">→</div>
+              <div class="workflow-step"><strong>Admin</strong><span>Start Processing → Complete</span></div>
+              <div class="workflow-arrow">→</div>
+              <div class="workflow-step"><strong>Reporting</strong><span>Dashboard → Reports → Search → CSV Export</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="supervisor" class="panel"><div class="card"><div class="section-title"><div><h2 style="margin:0">Supervisor Approval Queue</h2><div class="muted">Review employee submissions before routing approved work to Admin.</div></div></div><div style="overflow:auto"><table><thead><tr><th>Request</th><th>Employee</th><th>Asset</th><th>Priority</th><th>Submitted</th><th>Actions</th></tr></thead><tbody id="supervisorRows"></tbody></table></div></div></section>
+
+    <section id="users" class="panel">
+      <div class="card">
+        <div class="section-title">
+          <div>
+            <h2 style="margin:0">User & Access Management</h2>
+            <div class="muted">Admin-only maintenance for user roles, active status, division, and multi-section access.</div>
+          </div>
+        </div>
+
+        <div class="user-admin-grid">
+          <div class="user-form">
+            <h3 style="margin-top:0">Maintain User</h3>
+            <input type="hidden" id="editUserKey">
+
+            <div class="grid">
+              <div class="full">
+                <label>Employee Name *</label>
+                <input id="maintUserName" placeholder="Employee name">
+              </div>
+              <div>
+                <label>Employee ID *</label>
+                <input id="maintUserEmpId" maxlength="7" placeholder="7 digits">
+              </div>
+              <div>
+                <label>Role *</label>
+                <select id="maintUserRole">
+                  <option>Employee</option>
+                  <option>Supervisor</option>
+                  <option>Admin</option>
+                </select>
+              </div>
+              <div>
+                <label>Division *</label>
+                <select id="maintUserDivision" onchange="renderSectionAccessOptions()">
+                  <option value="">Select division</option>
+                  <option>VOC</option>
+                  <option>DA</option>
+                  <option>NS</option>
+                  <option>VSD</option>
+                </select>
+              </div>
+              <div>
+                <label>Active</label>
+                <select id="maintUserActive">
+                  <option value="true">Active</option>
+                  <option value="false">Inactive</option>
+                </select>
+              </div>
+
+              <div class="full">
+                <label>Granted Sections *</label>
+                <div id="maintSectionChecks" class="section-checks"></div>
+                <div class="muted" style="margin-top:6px">Select one or many sections. Supervisors can be granted access across multiple sections.</div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="primary" type="button" onclick="saveMaintainedUser()">Save User</button>
+              <button class="secondary" type="button" onclick="clearMaintainedUser()">Clear</button>
+            </div>
+            <div id="userMaintNotice" class="notice hidden"></div>
+          </div>
+
+          <div>
+            <div class="section-title">
+              <div>
+                <h3 style="margin:0">Users</h3>
+                <div class="muted">Search and maintain system access.</div>
+              </div>
+              <div class="filters">
+                <input id="userSearch" placeholder="Search employee, ID, role, section..." oninput="renderUserAdmin()">
+              </div>
+            </div>
+
+            <div class="user-table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Employee</th>
+                    <th>Role</th>
+                    <th>Division</th>
+                    <th>Granted Sections</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="userAdminRows"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="admin" class="panel"><div class="card"><div class="section-title"><div><h2 style="margin:0">Admin Processing Queue</h2><div class="muted">Assign, process, and complete approved pick up / delivery requests.</div></div></div><div style="overflow:auto"><table><thead><tr><th>Request</th><th>Employee</th><th>Type</th><th>Asset</th><th>Location</th><th>Status</th><th>Actions</th></tr></thead><tbody id="adminRows"></tbody></table></div></div></section>
   </div>
 </div>
@@ -194,7 +670,8 @@ const AppState = {
   currentReview: null,
   detailId: null,
   formAssets: [],
-  editingId: null
+  editingId: null,
+  users: JSON.parse(localStorage.getItem('voc_users_v1') || 'null') || DEFAULT_USERS.map(u=>({...u,sections:[...u.sections]}))
 };
 
 </script>
@@ -323,10 +800,20 @@ function assetReviewHtml(assets){
 <script>
 /* js/dashboard.js */
 // Dashboard, supervisor queue, admin queue, and summary counts.
+function userCanAccessRequest(r){
+  if(!AppState.currentUser) return false;
+  if(AppState.currentUser.role === 'Admin') return true;
+  if(AppState.currentUser.role === 'Employee') return r.empId === AppState.currentUser.empId;
+  if(AppState.currentUser.role === 'Supervisor'){
+    const sections = AppState.currentUser.sections || [];
+    if(!sections.length) return true;
+    return sections.includes(r.section);
+  }
+  return false;
+}
+
 function visibleData(){
-  return AppState.currentUser.role === 'Employee'
-    ? AppState.requests.filter(r => r.empId === AppState.currentUser.empId)
-    : AppState.requests;
+  return requests.filter(userCanAccessRequest);
 }
 
 function requestSearchText(r){
@@ -420,6 +907,186 @@ function updateStats(){
   $('sCompleted').textContent = data.filter(r => r.status === 'Completed').length;
 }
 
+
+
+
+function renderSectionAccessOptions(selected = null){
+  const division = $('maintUserDivision')?.value || '';
+  const box = $('maintSectionChecks');
+  if(!box) return;
+
+  const sections = SECTION_DIRECTORY[division] || [];
+  let chosen = selected;
+  if(!Array.isArray(chosen)){
+    const editingId = $('editUserKey')?.value;
+    const existing = editingId ? findManagedUser(editingId) : null;
+    chosen = existing?.sections || [];
+  }
+
+  box.innerHTML = sections.length
+    ? sections.map(section => `
+      <label class="section-check">
+        <input type="checkbox" name="maintSection" value="${esc(section)}" ${chosen.includes(section)?'checked':''}>
+        <span>${esc(section)}</span>
+      </label>`).join('')
+    : '<div class="muted">Select a division to choose section access.</div>';
+}
+
+function getSelectedMaintSections(){
+  return [...document.querySelectorAll('input[name="maintSection"]:checked')].map(x=>x.value);
+}
+
+function showUserMaintNotice(message, isError=false){
+  const n = $('userMaintNotice');
+  if(!n) return;
+  n.textContent = message;
+  n.classList.remove('hidden','error');
+  if(isError) n.classList.add('error');
+}
+
+function clearMaintainedUser(){
+  if($('editUserKey')) $('editUserKey').value='';
+  if($('maintUserName')) $('maintUserName').value='';
+  if($('maintUserEmpId')) $('maintUserEmpId').value='';
+  if($('maintUserRole')) $('maintUserRole').value='Employee';
+  if($('maintUserDivision')) $('maintUserDivision').value='';
+  if($('maintUserActive')) $('maintUserActive').value='true';
+  renderSectionAccessOptions([]);
+  $('userMaintNotice')?.classList.add('hidden');
+}
+
+function saveMaintainedUser(){
+  if(!AppState.currentUser || AppState.currentUser.role !== 'Admin'){
+    alert('Admin access is required.');
+    return;
+  }
+
+  const name = $('maintUserName').value.trim();
+  const empId = $('maintUserEmpId').value.trim();
+  const role = $('maintUserRole').value;
+  const division = $('maintUserDivision').value;
+  const active = $('maintUserActive').value === 'true';
+  const sections = getSelectedMaintSections();
+  const editKey = $('editUserKey').value;
+
+  if(!name || !/^\d{7}$/.test(empId) || !division || !sections.length){
+    showUserMaintNotice('Enter a name, valid 7-digit Employee ID, division, and at least one granted section.', true);
+    return;
+  }
+
+  const duplicate = getManagedUsers().find(u => u.empId === empId && u.empId !== editKey);
+  if(duplicate){
+    showUserMaintNotice('That Employee ID already exists.', true);
+    return;
+  }
+
+  if(editKey){
+    const user = findManagedUser(editKey);
+    if(!user) return;
+    user.name = name;
+    user.empId = empId;
+    user.role = role;
+    user.division = division;
+    user.sections = sections;
+    user.active = active;
+    showUserMaintNotice('User updated successfully.');
+  }else{
+    AppState.users.push({name,empId,role,division,sections,active});
+    showUserMaintNotice('User added successfully.');
+  }
+
+  persistUsers();
+  renderUserAdmin();
+  clearMaintainedUser();
+}
+
+function editMaintainedUser(empId){
+  const user = findManagedUser(empId);
+  if(!user) return;
+  $('editUserKey').value=user.empId;
+  $('maintUserName').value=user.name;
+  $('maintUserEmpId').value=user.empId;
+  $('maintUserRole').value=user.role;
+  $('maintUserDivision').value=user.division;
+  $('maintUserActive').value=String(user.active);
+  renderSectionAccessOptions(user.sections || []);
+  $('userMaintNotice')?.classList.add('hidden');
+  $('maintUserName').focus();
+}
+
+function toggleMaintainedUser(empId){
+  if(!AppState.currentUser || AppState.currentUser.role !== 'Admin') return;
+  const user = findManagedUser(empId);
+  if(!user) return;
+
+  if(user.empId === AppState.currentUser.empId && user.active){
+    alert('You cannot deactivate your own current Admin account.');
+    return;
+  }
+
+  user.active = !user.active;
+  persistUsers();
+  renderUserAdmin();
+}
+
+function deleteMaintainedUser(empId){
+  if(!AppState.currentUser || AppState.currentUser.role !== 'Admin') return;
+  if(empId === AppState.currentUser.empId){
+    alert('You cannot delete your own current Admin account.');
+    return;
+  }
+  const user = findManagedUser(empId);
+  if(!user) return;
+  if(!confirm(`Delete user ${user.name} (${user.empId})?`)) return;
+  AppState.users = AppState.users.filter(u => u.empId !== empId);
+  persistUsers();
+  renderUserAdmin();
+}
+
+function renderUserAdmin(){
+  if(!AppState.currentUser || AppState.currentUser.role !== 'Admin') return;
+  const q = ($('userSearch')?.value || '').trim().toLowerCase();
+
+  const data = getManagedUsers().filter(u => {
+    const hay = [u.name,u.empId,u.role,u.division,...(u.sections||[]),u.active?'active':'inactive'].join(' ').toLowerCase();
+    return !q || hay.includes(q);
+  });
+
+  $('userAdminRows').innerHTML = data.map(u => `
+    <tr class="${u.active?'':'inactive-user'}">
+      <td><strong>${esc(u.name)}</strong><br><span class="muted">${esc(u.empId)}</span></td>
+      <td>${esc(u.role)}</td>
+      <td>${esc(u.division)}</td>
+      <td>${(u.sections||[]).map(s=>`<span class="access-chip">${esc(s)}</span>`).join('') || '—'}</td>
+      <td>${u.active?'<span class="badge approved">Active</span>':'<span class="badge rejected">Inactive</span>'}</td>
+      <td>
+        <div class="user-actions">
+          <button class="secondary smallbtn" onclick="editMaintainedUser('${u.empId}')">Edit</button>
+          <button class="secondary smallbtn" onclick="toggleMaintainedUser('${u.empId}')">${u.active?'Deactivate':'Activate'}</button>
+          <button class="dangerbtn smallbtn" onclick="deleteMaintainedUser('${u.empId}')">Delete</button>
+        </div>
+      </td>
+    </tr>`).join('') || '<tr><td colspan="6">No users found.</td></tr>';
+}
+
+function goManual(id){
+  const el = $(id);
+  if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function filterManual(){
+  const q = ($('manualSearch')?.value || '').trim().toLowerCase();
+  document.querySelectorAll('[data-manual]').forEach(section => {
+    const match = !q || section.textContent.toLowerCase().includes(q);
+    section.classList.toggle('hidden', !match);
+  });
+}
+
+function clearManualSearch(){
+  if($('manualSearch')) $('manualSearch').value = '';
+  document.querySelectorAll('[data-manual]').forEach(section => section.classList.remove('hidden'));
+  goManual('m-start');
+}
 
 function reportData(){
   const base = visibleData();
@@ -530,36 +1197,71 @@ function renderAll(){
   renderReports();
   renderSupervisor();
   renderAdmin();
+  renderUserAdmin();
 }
 
 </script>
 <script>
 /* js/auth.js */
 // Demo authentication and role-based navigation.
+function getManagedUsers(){
+  return AppState.users || [];
+}
+
+function persistUsers(){
+  localStorage.setItem('voc_users_v1', JSON.stringify(AppState.users || []));
+}
+
+function findManagedUser(empId){
+  return getManagedUsers().find(u => u.empId === empId);
+}
+
 function login(){
-  const name = $('loginName').value.trim() || 'Demo User';
-  const empId = $('loginEmpId').value.trim();
-  const role = $('loginRole').value;
+  const name=$('loginName').value.trim()||'Demo User';
+  const empId=$('loginEmpId').value.trim();
+  let role=$('loginRole').value;
 
   if(!/^\d{7}$/.test(empId)){
     alert('Employee ID must be exactly 7 digits.');
     return;
   }
 
-  AppState.currentUser = {name, empId, role};
-  $('loginShell').classList.add('hidden');
+  const managed = findManagedUser(empId);
+  if(managed){
+    if(!managed.active){
+      alert('This user account is inactive. Please contact an administrator.');
+      return;
+    }
+    role = managed.role;
+    AppState.currentUser = {
+      name: managed.name,
+      empId: managed.empId,
+      role: managed.role,
+      division: managed.division,
+      sections: [...(managed.sections || [])]
+    };
+  }else{
+    AppState.currentUser = {name,empId,role,division:'',sections:[]};
+  }
+
+  $('loginScreen').classList.add('hidden');
   $('app').classList.remove('hidden');
-  $('who').textContent = name + ' • ' + empId;
-  $('rolePill').textContent = role;
-  $('employeeName').value = name;
-  $('employeeId').value = empId;
+  $('who').textContent=AppState.currentUser.name+' • '+AppState.currentUser.empId;
+  $('rolePill').textContent=AppState.currentUser.role;
+  $('employeeName').value=AppState.currentUser.name;
+  $('employeeId').value=AppState.currentUser.empId;
+
+  if(AppState.currentUser.division && $('division')){
+    $('division').value = AppState.currentUser.division;
+  }
 
   buildTabs();
-  $('roleNote').textContent = role === 'Employee'
-    ? 'Employee: create requests, save drafts, review before submission, and edit draft or rejected requests.'
-    : role === 'Supervisor'
-      ? 'Supervisor: review submitted requests and approve or reject them with a recorded activity history.'
-      : 'Admin: manage approved work, start processing, and record completion of pick up or delivery requests.';
+  $('roleNote').textContent =
+    AppState.currentUser.role==='Employee'
+      ? 'Employee: create, submit, track, and edit draft or rejected requests.'
+      : AppState.currentUser.role==='Supervisor'
+        ? `Supervisor: review requests for granted section access${AppState.currentUser.sections?.length ? ' ('+AppState.currentUser.sections.join(', ')+')' : ''}.`
+        : 'Admin: process requests, maintain users and access, and complete delivery/pick up work.';
 
   renderAll();
   showTab('dashboard');
@@ -576,7 +1278,11 @@ function buildTabs(){
   if(AppState.currentUser.role === 'Employee') items.push(['employee','New Request']);
   if(['Supervisor','Admin'].includes(AppState.currentUser.role)) items.push(['reports','Reports']);
   if(AppState.currentUser.role === 'Supervisor') items.push(['supervisor','Supervisor Approval']);
-  if(AppState.currentUser.role === 'Admin') items.push(['admin','Admin Processing']);
+  if(AppState.currentUser.role === 'Admin') {
+    items.push(['admin','Admin Processing']);
+    items.push(['users','User Management']);
+  }
+  items.push(['help','Help'],['about','About']);
 
   $('tabs').innerHTML = items.map((item,i) =>
     `<button class="tab ${i?'':'active'}" data-tab="${item[0]}" onclick="${item[0] === 'employee' ? `startNewRequest(this)` : `showTab('${item[0]}',this)`}">${item[1]}</button>`
